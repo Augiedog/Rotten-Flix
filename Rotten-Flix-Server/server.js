@@ -14,8 +14,10 @@ app.use(
     cors()
 )
 
-// serve static frontend 
+// serve static frontend in production mode
+if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, 'public', 'build')));
+}
 
 // Routes
 app.use('/users', require('./routes/user') )
@@ -28,3 +30,8 @@ app.use('/auth', require('./routes/auth') )
 // mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 //     .then( () => app.listen(process.env.PORT, () => console.log(`Database Connected : Server running on port: ${process.env.PORT}`)) )
 //     .catch( (err) => console.log(err.message) )
+
+    // Listen for Connection remove in production
+app.listen(process.env.PORT, () => {
+    console.log(`Rotten reviews @  ${process.env.PORT}`)
+})
