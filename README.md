@@ -9,4 +9,4 @@ If you don't want to make an account you can login with the following demo crede
 Username: demo || Password: demo
 ```
 
-Project can be viewed here: [Rotten-Flix](https://rottenflix.netlify.app)
+Project can be viewed here: [Rotten-Flix](https://main--graceful-capybara-94d910.netlify.app/login)
