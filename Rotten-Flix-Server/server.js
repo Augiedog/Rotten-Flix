@@ -27,11 +27,11 @@ app.use('/movies', require('./routes/movie') )
 app.use('/auth', require('./routes/auth') )
 
 // Database Connection & Server Start -- //
-// mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-//     .then( () => app.listen(process.env.PORT, () => console.log(`Database Connected : Server running on port: ${process.env.PORT}`)) )
-//     .catch( (err) => console.log(err.message) )
+mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then( () => app.listen(process.env.PORT, () => console.log(`Database Connected : Server running on port: ${process.env.PORT}`)) )
+    .catch( (err) => console.log(err.message) )
 
-    // Listen for Connection remove in production
-app.listen(process.env.PORT, () => {
-    console.log(`Rotten reviews @  ${process.env.PORT}`)
-})
+// Listen for Connection remove in production
+// app.listen(process.env.PORT, () => {
+//     console.log(`Rotten reviews @  ${process.env.PORT}`)
+// })

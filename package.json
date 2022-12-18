@@ -1,0 +1,23 @@
+{
+  "name": "RottenFlix",
+  "version": "1.0.0",
+  "description": "Mashup between Rotten Tomatoes and Netlfix.\r Users can create an account, rate movies, and leave reviews.",
+  "main": "server.js",
+  "scripts": {
+    "frontend": "npm --prefix Rotten-Flix-Client run start",
+    "start": "npm --prefix Rotten-Flix-Server run start",
+    "pack:front": "npm --prefix Rotten-Flix-Client run build",
+    "build":  "npm --prefix Rotten-Flix-Server run build"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Augiedog/Rotten-Flix.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Augiedog/Rotten-Flix/issues"
+  },
+  "homepage": "https://github.com/Augiedog/Rotten-Flix#readme"
+}
