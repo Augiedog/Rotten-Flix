@@ -9,8 +9,8 @@ const app = express()
 
 // -- Middleware -- //
 app.use(
-    bodyparser.json( { limit: "30mb", extended: true }),
-    bodyparser.urlencoded( { limit: "30mb", extended: true }),
+    bodyparser.json({ limit: "30mb", extended: true }),
+    bodyparser.urlencoded({ limit: "30mb", extended: true }),
     cors()
 )
 
@@ -19,19 +19,27 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, 'public', 'build')));
 }
 
+// Root
+app.get('/', (req, res) => {
+    res.status(200).json({
+        message: 'Rotten-Flix-Server'
+    })
+})
+
 // Routes
-app.use('/users', require('./routes/user') )
-app.use('/reviews', require('./routes/review') )
-app.use('/ratings', require('./routes/rating') )
-app.use('/movies', require('./routes/movie') )
-app.use('/auth', require('./routes/auth') )
+app.use('/auth', require('./routes/auth'))
+app.use('/users', require('./routes/user'))
+app.use('/reviews', require('./routes/review'))
+app.use('/ratings', require('./routes/rating'))
+app.use('/movies', require('./routes/movie'))
 
-// Database Connection & Server Start -- //
+// Database Connection
 mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then( () => app.listen(process.env.PORT, () => console.log(`Database Connected : Server running on port: ${process.env.PORT}`)) )
-    .catch( (err) => console.log(err.message) )
+    .then(() => console.log('MongoDB connected'))
+    .catch((err) => console.log(err.message))
 
-// Listen for Connection remove in production
-// app.listen(process.env.PORT, () => {
-//     console.log(`Rotten reviews @  ${process.env.PORT}`)
-// })
+// LISTEN--remove listen for Connection in production //
+const PORT = process.env.PORT
+app.listen(PORT, () => {
+    console.log('Rotten Flix Server running on port:', PORT);
+})

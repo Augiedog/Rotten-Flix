@@ -2,7 +2,7 @@
 
 API for Rotten-Flix movie review/rating project.
 
-https://rotten-flix-api.herokuapp.com/movies
+https://main--graceful-capybara-94d910.netlify.app/
 
 ## Routes
 
